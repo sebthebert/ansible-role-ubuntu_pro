@@ -1,0 +1,13 @@
+---
+argument_specs:
+  main:
+    short_description: Register host on Ubuntu Pro (https://ubuntu.com/pro)
+    description:
+      - The main entry point just combines the repositories and packages
+             entry points.
+    options:
+      ubuntu_pro_token:
+        description:
+          - Ubuntu Pro token
+        type: str
+        required: true

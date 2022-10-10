@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  role_name: ubuntu_pro
+  author: sebthebert
+  description: Register host on Ubuntu Pro
+  issue_tracker_url: https://github.com/sebthebert/ansible-role-ubuntu_pro/issues
+  license: "license (BSD, MIT)"
+  min_ansible_version: "2.11"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - ubuntu
+    - ubuntu-pro
+
+dependencies: []
