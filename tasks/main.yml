@@ -2,11 +2,13 @@
 - name: Launch 'apt update'
   ansible.builtin.apt:
     update_cache: yes
+  become: yes
 
 - name: Launch 'apt upgrade'
   ansible.builtin.apt:
     upgrade: yes
-
+  become: yes
+  
 - name: Register this host on Ubuntu Pro (pro attach <token>)
   command: pro attach {{ ubuntu_pro_token }}
   become: yes
