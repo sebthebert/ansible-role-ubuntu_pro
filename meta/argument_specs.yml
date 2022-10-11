@@ -11,3 +11,61 @@ argument_specs:
           - Ubuntu Pro token
         type: str
         required: true
+      ubuntu_pro_config.http_proxy:
+        description:
+          - HTTP Proxy
+        type: str
+        required: false
+      ubuntu_pro_config.https_proxy:
+        description:
+          - HTTPW Proxy
+        type: str
+        required: false
+      ubuntu_pro_config.apt_http_proxy:
+        description:
+          - apt HTTP Proxy
+        type: str
+        required: false
+      ubuntu_pro_config.apt_https_proxy:
+        description:
+          - apt HTTPs Proxy
+        type: str
+        required: false
+      ubuntu_pro_config.ua_apt_http_proxy:
+        description:
+          - ua apt HTTP Proxy
+        type: str
+        required: false
+      ubuntu_pro_config.ua_apt_https_proxy:
+        description:
+          - ua apt HTTPS Proxy
+        type: str
+        required: false
+      ubuntu_pro_config.global_apt_http_proxy:
+        description:
+          - global apt HTTP Proxy
+        type: str
+        required: false
+      ubuntu_pro_config.global_apt_https_proxy:
+        description:
+          - global apt HTTPS Proxy
+        type: str
+        required: false
+      ubuntu_pro_config.update_messaging_timer:
+        description:
+          - Update Messaging timer
+        type: int
+        required: false
+        default: 21600
+      ubuntu_pro_config.update_status_timer:
+        description:
+          - Update Status timer
+        type: int
+        required: false
+        default: 43200
+      ubuntu_pro_config.metering_timer:
+        description:
+          - Metering timer
+        type: int
+        required: false
+        default: 43200
