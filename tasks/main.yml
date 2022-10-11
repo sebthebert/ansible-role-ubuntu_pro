@@ -1,4 +1,6 @@
 ---
+- include_tasks: validate_ubuntu_lts_version.yml
+
 - name: Launch 'apt update'
   ansible.builtin.apt:
     update_cache: yes
@@ -8,11 +10,12 @@
   ansible.builtin.apt:
     upgrade: yes
   become: yes
-  
+
 - name: Register this host on Ubuntu Pro (pro attach <token>)
-  command: pro attach {{ ubuntu_pro_token }}
+  ansible.builtin.command: "pro attach {{ ubuntu_pro_token }}"
   become: yes
   register: reg_pro_attach
 
-- debug:
+- name: Print 'pro attach' command output
+  ansible.builtin.debug:
     var: reg_pro_attach
