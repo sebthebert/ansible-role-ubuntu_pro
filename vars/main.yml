@@ -4,3 +4,24 @@ ubuntu_pro_lts_releases:
   - "18.04"
   - "20.04"
   - "22.04"
+
+# ubuntu_pro_config:
+#   http_proxy:
+#   https_proxy:
+#   apt_http_proxy:
+#   apt_https_proxy:
+#   ua_apt_http_proxy:
+#   ua_apt_https_proxy:
+#   global_apt_http_proxy:
+#   global_apt_https_proxy:
+#   update_messaging_timer: 21600
+#   update_status_timer: 43200
+#   metering_timer: 14400
+
+# ubuntu_pro_services:
+#   - 'cc-eal'       # Common Criteria EAL2
+#   - 'esm-infra'    # Expanded Security Maintenance for Infrastructure
+#   - 'fips'
+#   - 'fips-updates'
+#   - 'livepatch'    # Canonical Kernel Livepatch
+#   - 'usg'          # Ubuntu Security Guide

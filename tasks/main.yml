@@ -11,6 +11,14 @@
     upgrade: yes
   become: yes
 
+- name: Install 'ubuntu-advantage-tools' package
+  ansible.builtin.apt:
+    name: ubuntu-advantage-tools
+    state: latest
+  become: yes
+
+- include_tasks: configure.yml
+
 - name: Register this host on Ubuntu Pro (pro attach <token>)
   ansible.builtin.command: "pro attach {{ ubuntu_pro_token }}"
   become: yes
