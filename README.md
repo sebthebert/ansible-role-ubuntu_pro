@@ -4,7 +4,9 @@ An Ansible Role that registers host on [Ubuntu Pro](https://ubuntu.com/pro).
 
 ## Requirements
 
-Ansible Pro is only available for every Ubuntu LTS releases from 16.04 LTS.
+This role uses [Role Argument Validation](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#role-argument-validation) introduced with **Ansible 2.11**.
+
+Ubuntu Pro is only available for every **Ubuntu LTS releases from 16.04 LTS**.
 
 ## Roles Variables
 
