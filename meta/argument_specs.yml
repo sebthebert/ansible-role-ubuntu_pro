@@ -6,6 +6,41 @@ argument_specs:
       - The main entry point just combines the repositories and packages
              entry points.
     options:
+      debug:
+        description: Use debug module to display 'pro' command stdout/stderr
+        type: bool
+        default: false
+      disabled_services:
+        description: List of services to disable
+        type: list
+        elements: str
+        choices:
+          - 'cc-eal'       # Common Criteria EAL2
+          - 'esm-infra'    # Expanded Security Maintenance for Infrastructure
+          - 'fips'
+          - 'fips-updates'
+          - 'livepatch'    # Canonical Kernel Livepatch
+          - 'usg'
+      enabled_services:
+        description: List of services to enable
+        type: list
+        elements: str
+        choices:
+          - 'cc-eal'       # Common Criteria EAL2
+          - 'esm-infra'    # Expanded Security Maintenance for Infrastructure
+          - 'fips'
+          - 'fips-updates'
+          - 'livepatch'    # Canonical Kernel Livepatch
+          - 'usg' 
+      state:
+        description: State of Ubuntu Pro installation
+        type: str
+        choices:
+          - absent
+          - attached
+          - detached
+          - present
+        default: present
       ubuntu_pro_token:
         description:
           - Ubuntu Pro token
@@ -18,7 +53,7 @@ argument_specs:
         required: false
       ubuntu_pro_config.https_proxy:
         description:
-          - HTTPW Proxy
+          - HTTPS Proxy
         type: str
         required: false
       ubuntu_pro_config.apt_http_proxy:
@@ -28,7 +63,7 @@ argument_specs:
         required: false
       ubuntu_pro_config.apt_https_proxy:
         description:
-          - apt HTTPs Proxy
+          - apt HTTPS Proxy
         type: str
         required: false
       ubuntu_pro_config.ua_apt_http_proxy:
