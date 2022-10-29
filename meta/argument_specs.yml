@@ -31,7 +31,7 @@ argument_specs:
           - 'fips'
           - 'fips-updates'
           - 'livepatch'    # Canonical Kernel Livepatch
-          - 'usg' 
+          - 'usg'
       state:
         description: State of Ubuntu Pro installation
         type: str

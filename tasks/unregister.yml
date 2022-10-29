@@ -1,9 +1,11 @@
 ---
-- ansible.builtin.shell: "command pro"
+- name: Check if command 'pro' exists
+  ansible.builtin.shell: "command pro"
   register: reg_command_pro
   ignore_errors: yes
 
-- set_fact:
+- name: Set variable 'pro_command_exists'
+  ansible.builtin.set_fact:
     pro_command_exists: "{{ (reg_command_pro.rc == 127) | ternary(false, true) }}"
 
 - name: Unregister this host on Ubuntu Pro (pro detach)
