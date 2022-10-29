@@ -18,10 +18,10 @@ ubuntu_pro_lts_releases:
 #   update_status_timer: 43200
 #   metering_timer: 14400
 
-# ubuntu_pro_services:
-#   - 'cc-eal'       # Common Criteria EAL2
-#   - 'esm-infra'    # Expanded Security Maintenance for Infrastructure
-#   - 'fips'
-#   - 'fips-updates'
-#   - 'livepatch'    # Canonical Kernel Livepatch
-#   - 'usg'          # Ubuntu Security Guide
+ubuntu_pro_services:
+  - 'cc-eal'       # Common Criteria EAL2
+  - 'esm-infra'    # Expanded Security Maintenance for Infrastructure
+  - 'fips'
+  - 'fips-updates'
+  - 'livepatch'    # Canonical Kernel Livepatch
+  - 'usg'          # Ubuntu Security Guide

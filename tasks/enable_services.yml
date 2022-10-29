@@ -1,0 +1,11 @@
+---
+- name: Enable services
+  ansible.builtin.command: "pro enable {{ item }}"
+  become: yes
+  register: reg_pro_enable
+  when: item in ubuntu_pro_services
+  loop: "{{ enabled_services }}"
+  changed_when: reg_pro_enable.rc == 0
+  failed_when:
+    - reg_pro_enable.rc != 0
+    - ('is already enabled' not in reg_pro_enable.stdout_lines[1] and 'is not available for' not in reg_pro_enable.stdout_lines[1])

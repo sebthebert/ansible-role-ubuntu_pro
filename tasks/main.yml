@@ -1,29 +1,20 @@
 ---
-- include_tasks: validate_ubuntu_lts_version.yml
+- name: Include tasks 'validate_ubuntu_lts_version.yml'
+  include_tasks: validate_ubuntu_lts_version.yml
 
-- name: Launch 'apt update'
-  ansible.builtin.apt:
-    update_cache: yes
-  become: yes
+# - name: Include tasks 'requirements.yml'
+#   include_tasks: requirements.yml
 
-- name: Launch 'apt upgrade'
-  ansible.builtin.apt:
-    upgrade: yes
-  become: yes
+- name: Include tasks 'configure.yml'
+  include_tasks: configure.yml
 
-- name: Install 'ubuntu-advantage-tools' package
-  ansible.builtin.apt:
-    name: ubuntu-advantage-tools
-    state: latest
-  become: yes
+- name: Include tasks 'register.yml'
+  include_tasks: register.yml
 
-- include_tasks: configure.yml
+- name: Include tasks 'enable_services.yml'
+  include_tasks: enable_services.yml
+  when: enabled_services is defined
 
-- name: Register this host on Ubuntu Pro (pro attach <token>)
-  ansible.builtin.command: "pro attach {{ ubuntu_pro_token }}"
-  become: yes
-  register: reg_pro_attach
-
-- name: Print 'pro attach' command output
-  ansible.builtin.debug:
-    var: reg_pro_attach
+- name: Include tasks 'disable_services.yml'
+  include_tasks: disable_services.yml
+  when: disabled_services is defined

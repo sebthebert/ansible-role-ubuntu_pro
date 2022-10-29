@@ -1,0 +1,10 @@
+---
+- name: Register this host on Ubuntu Pro (pro attach <token>)
+  ansible.builtin.command: "pro attach {{ ubuntu_pro_token }}"
+  become: yes
+  register: reg_pro_attach
+  failed_when: (reg_pro_attach.rc != 0) and ('This machine is already attached to' not in reg_pro_attach.stderr_lines[0])
+
+- name: Print 'pro attach' command output
+  ansible.builtin.debug:
+    var: reg_pro_attach

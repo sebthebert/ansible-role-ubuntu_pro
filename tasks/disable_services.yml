@@ -1,0 +1,11 @@
+---
+- name: Disable services
+  ansible.builtin.command: "pro disable {{ item }}"
+  become: yes
+  register: reg_pro_disable
+  when: item in ubuntu_pro_services
+  loop: "{{ disabled_services }}"
+  changed_when: reg_pro_disable.rc == 0
+  failed_when:
+    - reg_pro_disable.rc != 0
+    - ('is not currently enabled' not in reg_pro_disable.stdout_lines[0])
