@@ -1,20 +1,32 @@
 ---
 - name: Include tasks 'validate_ubuntu_lts_version.yml'
   include_tasks: validate_ubuntu_lts_version.yml
+  when: state == 'present' or state == 'attached'
 
-# - name: Include tasks 'requirements.yml'
-#   include_tasks: requirements.yml
+- name: Include tasks 'requirements.yml'
+  include_tasks: requirements.yml
+  when: state == 'present' or state == 'attached'
 
 - name: Include tasks 'configure.yml'
   include_tasks: configure.yml
+  when: state == 'present' or state == 'attached'
 
 - name: Include tasks 'register.yml'
   include_tasks: register.yml
+  when: state == 'present' or state == 'attached'
 
 - name: Include tasks 'enable_services.yml'
   include_tasks: enable_services.yml
-  when: enabled_services is defined
+  when: enabled_services is defined and (state == 'present' or state == 'attached')
 
 - name: Include tasks 'disable_services.yml'
   include_tasks: disable_services.yml
-  when: disabled_services is defined
+  when: disabled_services is defined and (state == 'present' or state == 'attached')
+
+- name: Include tasks 'unregister.yml'
+  include_tasks: unregister.yml
+  when: state == 'absent' or state == 'detached'
+
+- name: Include tasks 'uninstall.yml'
+  include_tasks: uninstall.yml
+  when: state == 'absent'

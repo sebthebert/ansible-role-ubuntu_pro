@@ -1,13 +1,13 @@
 ---
-- name: Launch 'apt update'
-  ansible.builtin.apt:
-    update_cache: yes
-  become: yes
+# - name: Launch 'apt update'
+#   ansible.builtin.apt:
+#     update_cache: yes
+#   become: yes
 
-- name: Launch 'apt upgrade'
-  ansible.builtin.apt:
-    upgrade: yes
-  become: yes
+# - name: Launch 'apt upgrade'
+#   ansible.builtin.apt:
+#     upgrade: yes
+#   become: yes
 
 - name: Install 'ubuntu-advantage-tools' package
   ansible.builtin.apt:

@@ -1,0 +1,20 @@
+---
+- ansible.builtin.shell: "command pro"
+  register: reg_command_pro
+  ignore_errors: yes
+
+- set_fact:
+    pro_command_exists: "{{ (reg_command_pro.rc == 127) | ternary(false, true) }}"
+
+- name: Unregister this host on Ubuntu Pro (pro detach)
+  ansible.builtin.command: "pro detach --assume-yes"
+  become: yes
+  register: reg_pro_detach
+  changed_when: reg_pro_detach.rc == 0
+  failed_when: (reg_pro_detach.rc != 0) and ('This machine is not attached to an Ubuntu Pro subscription.' not in reg_pro_detach.stderr_lines[0])
+  when: pro_command_exists
+
+- name: Print 'pro detach' command output
+  ansible.builtin.debug:
+    var: reg_pro_detach
+  when: (debug and pro_command_exists)
