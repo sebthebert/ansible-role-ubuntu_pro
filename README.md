@@ -22,7 +22,7 @@ The only mandatory variable is `ubuntu_pro_token`.
 | `ubuntu_pro_config.apt_https_proxy`        | APT HTTPS Proxy                  | String | NO        | None          |
 | `ubuntu_pro_config.ua_apt_http_proxy`      | UA APT HTTP Proxy                | String | NO        | None          |
 | `ubuntu_pro_config.ua_apt_https_proxy`     | UA APT HTTPS Proxy               | String | NO        | None          |
-| `ubuntu_pro_config.gloabl_apt_http_proxy`  | Global APT HTTP Proxy            | String | NO        | None          |
+| `ubuntu_pro_config.global_apt_http_proxy`  | Global APT HTTP Proxy            | String | NO        | None          |
 | `ubuntu_pro_config.global_apt_https_proxy` | Global APT HTTPS Proxy           | String | NO        | None          |
 | `ubuntu_pro_config.update_messaging_timer` | Update Messaging Timer           | Int    | NO        | `21600`       |
 | `ubuntu_pro_config.update_status_timer`    | Update Status Timer              | Int    | NO        | `43200`       |
