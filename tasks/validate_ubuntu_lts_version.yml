@@ -3,16 +3,10 @@
   ansible.builtin.setup:
     filter: lsb
 
-- name: Assert that Host Operating System is Ubuntu
-  ansible.builtin.assert:
-    that:
-      - ansible_facts.lsb.id == 'Ubuntu'
-    fail_msg: 'Host Operating System is NOT Ubuntu'
-    success_msg: 'Host Operating System is Ubuntu'
+- name: End role if Host Operating System is not Ubuntu
+  ansible.builtin.meta: end_role
+  when: ansible_facts.lsb.id != 'Ubuntu'
 
-- name: Assert that Host Operating System is an Ubuntu LSB Release
-  ansible.builtin.assert:
-    that:
-      - ansible_facts.lsb.release in ubuntu_pro_lts_releases
-    fail_msg: 'Host Operating System is NOT an Ubuntu LSB Release'
-    success_msg: 'Host Operating System is an Ubuntu LSB Release'
+- name: End role if Host Operating System is not an Ubuntu LSB Release
+  ansible.builtin.meta: end_role
+  when: ansible_facts.lsb.release not in ubuntu_pro_lts_releases
