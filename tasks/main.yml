@@ -13,7 +13,7 @@
 
 - name: Include tasks 'unregister.yml'
   include_tasks: unregister.yml
-  when: state == 'absent' or state == 'detached' or state == 'update'
+when: state == 'update'
 
 - name: Include tasks 'register.yml'
   include_tasks: register.yml
