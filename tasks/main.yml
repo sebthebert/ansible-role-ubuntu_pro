@@ -11,9 +11,13 @@
   include_tasks: configure.yml
   when: state == 'present' or state == 'attached'
 
+- name: Include tasks 'unregister.yml'
+  include_tasks: unregister.yml
+when: state == 'update'
+
 - name: Include tasks 'register.yml'
   include_tasks: register.yml
-  when: state == 'present' or state == 'attached'
+  when: state == 'present' or state == 'attached' or state == 'update'
 
 - name: Include tasks 'enable_services.yml'
   include_tasks: enable_services.yml

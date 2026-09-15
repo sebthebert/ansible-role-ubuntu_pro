@@ -40,6 +40,7 @@ argument_specs:
           - attached
           - detached
           - present
+          - update
         default: present
       ubuntu_pro_token:
         description:
