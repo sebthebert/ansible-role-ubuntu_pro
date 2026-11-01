@@ -21,9 +21,22 @@ ubuntu_pro_lts_releases:
 #   metering_timer: 14400
 
 ubuntu_pro_services:
-  - 'cc-eal'       # Common Criteria EAL2
-  - 'esm-infra'    # Expanded Security Maintenance for Infrastructure
-  - 'fips'
-  - 'fips-updates'
-  - 'livepatch'    # Canonical Kernel Livepatch
-  - 'usg'          # Ubuntu Security Guide
+  - 'anbox-cloud'                   # Scalable Android in the cloud
+  - 'cc-eal'                        # Common Criteria EAL2
+  - 'cis'                           # replace by 'usg' since Ubuntu Focal (20.04)
+  - 'esm-apps'                      # Expanded Security Maintenance for Applications
+  - 'esm-apps-legacy'               # Legacy Expanded Security Maintenance for Applications
+  - 'esm-infra'                     # Expanded Security Maintenance for Infrastructure
+  - 'esm-infra-legacy'              # Legacy Expanded Security Maintenance for Infrastructure
+  - 'fips'                          # NIST-certified FIPS crypto packages
+  - 'fips-preview'                  # Preview of FIPS crypto packages undergoing certification with NIST
+  - 'fips-updates'                  # FIPS compliant crypto packages with stable security updates
+  - 'landscape'                     # Management and administration tool for Ubuntu
+  - 'livepatch'                     # Canonical Livepatch service
+  - 'realtime-kernel'               # Ubuntu kernel with PREEMPT_RT patches integrated
+  - 'realtime-kernel.generic'       # Generic version of the RT kernel (default)
+  - 'realtime-kernel.intel-iotg'    # RT kernel optimized for Intel IOTG platform
+  - 'realtime-kernel.raspi'         # RT kernel optimized for Raspberry Pi
+  - 'ros'                           # Security Updates for the Robot Operating System
+  - 'ros-updates'                   # All Updates for the Robot Operating System
+  - 'usg'                           # Security compliance and audit tools
