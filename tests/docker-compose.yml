@@ -1,0 +1,61 @@
+---
+services:
+  ubuntu1604:
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu-pro-test
+      args:
+        UBUNTU_VERSION: "16.04"
+    hostname: ubuntu1604
+    container_name: ubuntu1604
+    command: ["sleep", "infinity"]
+
+  ubuntu1804:
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu-pro-test
+      args:
+        UBUNTU_VERSION: "18.04"
+    hostname: ubuntu1804
+    container_name: ubuntu1804
+    command: ["sleep", "infinity"]
+
+  ubuntu2004:
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu-pro-test
+      args:
+        UBUNTU_VERSION: "20.04"
+    hostname: ubuntu2004
+    container_name: ubuntu2004
+    command: ["sleep", "infinity"]
+
+  ubuntu2204:
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu-pro-test
+      args:
+        UBUNTU_VERSION: "22.04"
+    hostname: ubuntu2204
+    container_name: ubuntu2204
+    command: ["sleep", "infinity"]
+
+  ubuntu2404:
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu-pro-test
+      args:
+        UBUNTU_VERSION: "24.04"
+    hostname: ubuntu2404
+    container_name: ubuntu2404
+    command: ["sleep", "infinity"]
+
+  ubuntu2604:
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu-pro-test
+      args:
+        UBUNTU_VERSION: "26.04"
+    hostname: ubuntu2604
+    container_name: ubuntu2604
+    command: ["sleep", "infinity"]

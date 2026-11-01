@@ -1,0 +1,18 @@
+ARG UBUNTU_VERSION
+FROM ubuntu:${UBUNTU_VERSION}
+
+ARG UBUNTU_VERSION
+
+RUN set -eux; \
+    case "${UBUNTU_VERSION}" in \
+      16.04|18.04|20.04) \
+        sed -i '/-security[[:space:]]/d' /etc/apt/sources.list; \
+        ;; \
+    esac; \
+    apt-get update; \
+    DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends \
+      python3 \
+      sudo; \
+    rm -rf /var/lib/apt/lists/*
+
+CMD ["sleep", "infinity"]
