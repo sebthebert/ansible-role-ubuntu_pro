@@ -3,4 +3,4 @@
   ansible.builtin.apt:
     name: ubuntu-advantage-tools
     state: absent
-  become: yes
+  become: true

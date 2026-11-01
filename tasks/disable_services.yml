@@ -1,7 +1,7 @@
 ---
 - name: Disable services
   ansible.builtin.command: "pro disable {{ item }}"
-  become: yes
+  become: true
   register: reg_pro_disable
   when: item in ubuntu_pro_services
   loop: "{{ disabled_services }}"
