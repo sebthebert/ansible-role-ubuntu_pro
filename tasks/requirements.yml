@@ -1,16 +1,16 @@
 ---
-# - name: Launch 'apt update'
-#   ansible.builtin.apt:
-#     update_cache: yes
-#   become: yes
-
-# - name: Launch 'apt upgrade'
-#   ansible.builtin.apt:
-#     upgrade: yes
-#   become: yes
-
-- name: Install 'ubuntu-advantage-tools' package
+- name: Install ca-certificates package
   ansible.builtin.apt:
-    name: ubuntu-advantage-tools
-    state: latest
-  become: yes
+    name: ca-certificates
+    state: present
+    update_cache: true
+  become: true
+
+- name: Install Ubuntu Pro client package
+  ansible.builtin.apt:
+    name: "{{ ubuntu_pro_package }}"
+    state: present
+  become: true
+  vars:
+    ubuntu_pro_package: >-
+      {{ 'ubuntu-advantage-tools' if ansible_facts.lsb.release is version('22.04', '<') else 'ubuntu-pro-client' }}
