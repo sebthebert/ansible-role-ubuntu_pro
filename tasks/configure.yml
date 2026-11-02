@@ -3,4 +3,4 @@
   ansible.builtin.command: "pro config {{ ('set ' + item.key + '=' + item.value if item.value else 'unset ' + item.key) }}"
   loop: "{{ ubuntu_pro_config | dict2items }}"
   when: ubuntu_pro_config is defined
-  become: yes
+  become: true

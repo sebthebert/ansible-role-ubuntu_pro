@@ -1,0 +1,11 @@
+---
+- name: Test ubuntu_pro role on Ubuntu LTS containers
+  hosts: ubuntu1604,ubuntu2604 #ubuntu_lts
+  gather_facts: false
+  serial: 2
+
+  vars:
+    ubuntu_pro_token: "{{ lookup('ansible.builtin.env', 'UBUNTU_PRO_TOKEN') }}"
+
+  roles:
+    - role: ansible-role-ubuntu_pro

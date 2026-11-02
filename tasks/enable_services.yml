@@ -1,7 +1,7 @@
 ---
 - name: Enable services
   ansible.builtin.command: "pro enable {{ item }}"
-  become: yes
+  become: true
   register: reg_pro_enable
   when: item in ubuntu_pro_services
   loop: "{{ enabled_services }}"

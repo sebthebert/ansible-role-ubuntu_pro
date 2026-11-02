@@ -1,4 +1,11 @@
 ---
+- name: Ensure ubuntu_pro_token is not empty
+  ansible.builtin.assert:
+    that: ubuntu_pro_token | length > 0
+    fail_msg: "ubuntu_pro_token must not be empty."
+    quiet: true
+  when: state in ['present', 'attached', 'update']
+
 - name: Include tasks 'validate_ubuntu_lts_version.yml'
   include_tasks: validate_ubuntu_lts_version.yml
   when: state == 'present' or state == 'attached'
