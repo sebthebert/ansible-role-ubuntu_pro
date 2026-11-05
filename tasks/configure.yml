@@ -1,6 +1,18 @@
 ---
+
+- name: Query current settings
+  ansible.builtin.command: "pro config {{ ('show ' + item.key) }}"
+  register: _current_ubuntu_pro_settings
+  when: ubuntu_pro_config is defined
+  loop: "{{ ubuntu_pro_config | dict2items }}"
+  changed_when: false
+
 - name: Configure proxies & timers for 'pro' client
   ansible.builtin.command: "pro config {{ ('set ' + item.key + '=' + item.value if item.value else 'unset ' + item.key) }}"
   loop: "{{ ubuntu_pro_config | dict2items }}"
-  when: ubuntu_pro_config is defined
+  loop_control:
+    index_var: my_idx
+  when:
+    - ubuntu_pro_config is defined
+    - item.value != _current_ubuntu_pro_settings.results[my_idx].stdout.split()[1]
   become: yes
